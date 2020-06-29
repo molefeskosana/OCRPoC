@@ -16,6 +16,7 @@ public class Application extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
         System.out.println("Begin of function calls");
+        //OcrService.ocrCall();
         DomainSpecificContentService.domainSpecificContentCalls();
         ImageTagService.tagImageCalls();
         System.out.println("End of function calls ");

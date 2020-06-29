@@ -10,10 +10,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.grid.Grid;
-import com.vaadin.flow.component.html.Div;
-import com.vaadin.flow.component.html.Image;
-import com.vaadin.flow.component.html.Input;
-import com.vaadin.flow.component.html.NativeButton;
+import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -91,7 +88,7 @@ public class MainView extends HorizontalLayout {
 
     public VerticalLayout righView(VerticalLayout verticalLayout){
 
-        Text subjectText = new Text("RESOURCE IMAGE");
+        Label subjectText = new Label("RESOURCE IMAGE");
 
         //**************************************************
         Div output = new Div();
@@ -104,7 +101,8 @@ public class MainView extends HorizontalLayout {
                 String fileName =  buffer.getFileName();
                 File file = new File(fileName);
                 String path = file.getAbsolutePath();
-                OcrService.multipartTest(path);
+                OcrService.ocrCall(fileName);
+                //OcrService.multipartTest(path);
                 System.out.println("file path : "+ path);
                 words = OcrService.getAllWords();
                 leftView(leftVerticalLayout,words, grid,navButton);
